@@ -1,9 +1,9 @@
-*.zip
-.settings
+asdoc
+bin
+examples
 .actionScriptProperties
 .flexLibProperties
 .project
-bin
-examples
+.settings
 *.swf
-asdoc
+*.zip
