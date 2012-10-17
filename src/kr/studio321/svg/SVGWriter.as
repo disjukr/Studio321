@@ -173,6 +173,26 @@ package kr.studio321.svg
 		}
 		
 		/**
+		 * 현재 드로잉 위치에서 지정된 앵커 포인트까지 3차 베지어 곡선을 그립니다. 3차 베지어 곡선은 앵커 포인트 두 개와 제어점 두 개로 구성됩니다. 이 곡선은 앵커 포인트를 두 개 삽입하고 두 제어점 방향으로 구부러집니다.
+		 * @param controlX1 부모 표시 객체의 등록 포인트를 기준으로 첫 번째 제어점의 가로 위치를 지정합니다.
+		 * @param controlY1 부모 표시 객체의 등록 포인트를 기준으로 첫 번째 제어점의 세로 위치를 지정합니다.
+		 * @param controlX2 부모 표시 객체의 등록 포인트를 기준으로 두 번째 제어점의 가로 위치를 지정합니다.
+		 * @param controlY2 부모 표시 객체의 등록 포인트를 기준으로 두 번째 제어점의 세로 위치를 지정합니다.
+		 * @param anchorX 부모 표시 객체의 등록 포인트를 기준으로 앵커 포인트의 가로 위치를 지정합니다.
+		 * @param anchorY 부모 표시 객체의 등록 포인트를 기준으로 앵커 포인트의 세로 위치를 지정합니다.
+		 */
+		public function cubicCurveTo( controlX1:Number, controlY1:Number, controlX2:Number, controlY2:Number, anchorX:Number, anchorY:Number ):void
+		{
+			var str:String = "C"+controlX1+","+controlY1+" "+controlX2+","+controlY2+" "+anchorX+","+anchorY+" ";
+			d += str;
+			fill_d += str;
+			pencil.x = anchorX;
+			pencil.y = anchorY;
+			
+			graphics.cubicCurveTo( controlX1, controlY1, controlX2, controlY2, anchorX, anchorY );
+		}
+		
+		/**
 		 * 원을 그립니다. drawCircle() 메서드를 호출하기 전에 linestyle() 또는 beginFill() 메서드를 호출하여 선 스타일, 채우기 또는 두 가지 모두를 설정합니다.
 		 * @param x 원 중심의 x 위치(픽셀 단위)입니다.
 		 * @param y 원 중심의 y 위치(픽셀 단위)입니다.
